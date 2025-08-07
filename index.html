@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Vocab App</title>
+    <link rel="stylesheet" href="style.css">
+      <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#007AFF">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Vocab App">
+</head>
+<body>
+    <div class="container">
+        <h1>My Vocab App</h1>
+        
+        <div class="tabs">
+            <button id="add-tab" class="tab active">Add Words</button>
+            <button id="study-tab" class="tab">Study</button>
+            <button id="list-tab" class="tab">Word List</button>
+        </div>
+
+        <div id="add-section" class="section active">
+            <input type="text" id="word-input" placeholder="Enter word">
+            <input type="text" id="definition-input" placeholder="Enter definition">
+            <button id="add-word">Add Word</button>
+        </div>
+
+        <div id="study-section" class="section">
+            <div id="flashcard">
+                <p>Add some words first!</p>
+            </div>
+            <div class="card-controls">
+                <button id="flip-card">Flip</button>
+                <button id="next-card">Next</button>
+            </div>
+        </div>
+
+        <div id="list-section" class="section">
+            <div id="word-list">
+                <p>No words added yet!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+        <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+                .then(registration => console.log('SW registered'))
+                .catch(error => console.log('SW registration failed'));
+        }
+    </script>
+</body>
+</html>
